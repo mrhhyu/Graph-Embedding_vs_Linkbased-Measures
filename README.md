@@ -5,4 +5,4 @@
 
 ## Citing:
 If you find the provided source codes and datasets useful for your research, please consider citing the following paper:
-> Hamedani, M.R.; Kim, S-W. On Investigating Both Effectiveness and Efficiency of Embedding Methods in Task of Similarity Computation of Nodes in Graphs. Application Sciences. Sci. 2021, 11, 162. DOI: https://dx.doi.org/10.3390/app11010162
+> Hamedani, M.R.; Kim, S-W. On Investigating Both Effectiveness and Efficiency of Embedding Methods in Task of Similarity Computation of Nodes in Graphs. Applied Sciences. 2021, 11, 162. DOI: https://dx.doi.org/10.3390/app11010162
