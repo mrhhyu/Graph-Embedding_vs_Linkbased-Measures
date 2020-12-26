@@ -1,0 +1,2 @@
+1. All the codes are implemented in Python 3.7 by Eclipse PyDev.
+2. The codes can be easily used in other Python IDs and it is possible to use them via command line by applying small changes. 
