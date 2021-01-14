@@ -198,7 +198,7 @@ def write_to_file(result_matrix, beta, alpha_in, alpha_out, topK, itr):
             node = target_node_res.index(val)            
             if val!=0 and node!= target_node:
                 sim_file.write(str(target_node)+','+str(node)+','+str(round(val,5))+'\n')
-                target_node_res[node] = np.nan 
+            target_node_res[node] = np.nan 
     sim_file.close()  
     print ("The result of JPRank, iteration {}, beta {} is written in the file!.".format(itr,beta)) 
     print('==============================================================================================')
