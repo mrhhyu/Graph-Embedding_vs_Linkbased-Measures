@@ -1,4 +1,4 @@
-# EMB_vs_LB
+# Graph Embedding Methods vs Link-based Similarity Measures in Task of Similarity Computation of Nodes in Graphs
 **This repository provides:**
 1. Python implementations for the matrix forms of link-based similarity measures as SimRank, SimRank*, JacSim, and JPRank. 
 2. Datasets employed in the paper: “On Investigating Both Effectiveness and Efficiency of Embedding Methods in Task of Similarity Computation of Nodes in Graphs”. 
