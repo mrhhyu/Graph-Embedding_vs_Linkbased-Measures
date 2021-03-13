@@ -52,12 +52,8 @@ def simrank_star(graph='', iterations=0, topK=0):
     #===========================================================================
     for itr in range (1,iterations+1):
         print ("Iteration {} .... ".format(itr))
-        temp_ = result_ @ norm_csr_adj ## --- S_k * Q
-        result_ = (decay_factor/2.0)*(temp_.transpose() + temp_) + csr_iden_matrix
-        del temp_ 
-        write_to_file(result_.todense(), topK, itr)
-         
-
+        result_ = (decay_factor/2.0)*((result_ @ norm_csr_adj).transpose() + result_ @ norm_csr_adj) + csr_iden_matrix
+        write_to_file(result_.todense(), topK, itr)        
 
 def write_to_file(result_matrix, topK, itr):
     '''
