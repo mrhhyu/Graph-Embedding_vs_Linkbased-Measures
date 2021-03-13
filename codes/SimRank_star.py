@@ -70,13 +70,13 @@ def write_to_file(result_matrix, topK, itr):
         target_node_res_sorted = sorted(target_node_res,reverse=True)
         count = 0
         for index in range (0,len(target_node_res_sorted)):
-            val = target_node_res_sorted[index]
-            target_node_res[target_node_res.index(val)] = np.nan              
+            val = target_node_res_sorted[index]          
             if val!=0 and target_node_res.index(val)!= target_node:
                 sim_file.write(str(target_node)+','+str(target_node_res.index(val))+','+str(round(val,5))+'\n') 
                 count = count + 1
                 if count == topK:
                     break
+            target_node_res[target_node_res.index(val)] = np.nan                      
     sim_file.close()  
     print ("The result of SimRank*, iteration {} is written in the file!.".format(itr)) 
     print('=============================================================================')
