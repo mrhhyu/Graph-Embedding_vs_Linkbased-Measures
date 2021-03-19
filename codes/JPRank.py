@@ -128,9 +128,7 @@ def JPRank(graph='', alpha_in=0.0, alpha_out=0.0, beta=0.0, iterations=0, topK=0
     del csr_adj_out
     iden_matrix = np.identity(ds_size,dtype=float)
     iden_matrix = iden_matrix * (1.0-decay_factor*beta*(alpha_in-alpha_out)-decay_factor*alpha_out)
-    csr_iden_matrix = csr_matrix(iden_matrix)
     result_ = iden_matrix ## S_0
-    del iden_matrix    
     print ('Column normalization of adjacency matrices and initialization is done ...')
     print('==============================================================================================================')
     
@@ -174,7 +172,7 @@ def JPRank(graph='', alpha_in=0.0, alpha_out=0.0, beta=0.0, iterations=0, topK=0
 
         result_ = beta*decay_factor* (alpha_in*csr_jaccard_in + (1.0-alpha_in)*(norm_csr_adj_in.transpose() @ result_ @ norm_csr_adj_in - csr_extra_in)) + \
                   (1.0-beta)*decay_factor* (alpha_out*csr_jaccard_out + (1.0-alpha_out)*(norm_csr_adj_out.transpose() @ result_ @ norm_csr_adj_out - csr_extra_out)) + \
-                  csr_iden_matrix
+                  iden_matrix
         
         del rows
         del cols 
