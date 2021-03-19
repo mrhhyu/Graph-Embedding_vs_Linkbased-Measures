@@ -82,9 +82,7 @@ def JacSim_MF(graph='', alpha=0.0, iterations=0, topK=0):
     del csr_adj
     iden_matrix = np.identity(ds_size,dtype=float)
     iden_matrix = iden_matrix * (1.0-decay_factor*alpha)
-    csr_iden_matrix = csr_matrix(iden_matrix)
     result_ = iden_matrix ## S_0
-    del iden_matrix
     print ('Column normalization of adjacency matrix and initialization is done ...')
     print('==============================================================================================')
     
@@ -110,7 +108,7 @@ def JacSim_MF(graph='', alpha=0.0, iterations=0, topK=0):
             vals.append(sum_/(float)(multi_))                
                             
         csr_extra = csr_matrix((vals, (rows, cols)), shape=(ds_size, ds_size)) ## --- compressed sparse row representation of extra values matrix
-        result_ = decay_factor*( alpha*csr_jaccard + (1.0-alpha)*(norm_csr_adj.transpose() @ result_ @ norm_csr_adj - csr_extra) ) + csr_iden_matrix
+        result_ = decay_factor*( alpha*csr_jaccard + (1.0-alpha)*(norm_csr_adj.transpose() @ result_ @ norm_csr_adj - csr_extra) ) + iden_matrix
         del rows
         del cols 
         del vals        
