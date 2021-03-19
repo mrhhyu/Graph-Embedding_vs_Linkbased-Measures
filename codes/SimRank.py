@@ -41,15 +41,15 @@ def simrank(graph='', iterations=0, topK=0):
     print ('Column normalization is done ...')
     
     iden_matrix = np.identity(len(node_set),dtype=float)
-    node_set = None
+    del node_set
+    del csr_adj
     iden_matrix = iden_matrix * (1-decay_factor)
-    csr_iden_matrix = csr_matrix(iden_matrix)
     result_ = iden_matrix ## S_0        
     print('===========================================================')
     
     for itr in range (1,iterations+1):
         print ("Iteration {} .... ".format(itr))
-        result_ = decay_factor*(norm_csr_adj.transpose() @ result_ @ norm_csr_adj) + csr_iden_matrix
+        result_ = decay_factor*(norm_csr_adj.transpose() @ result_ @ norm_csr_adj) + iden_matrix
         write_to_file(result_, topK, itr)    
 
 
