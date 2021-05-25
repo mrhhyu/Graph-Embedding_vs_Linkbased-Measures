@@ -1,2 +1,2 @@
-1. This package contains BlogCatalog, Cora, DBLP, TREC, and Wikipedia datasets. 
+1. This package contains BlogCatalog, Cora, and Wikipedia datasets. 
 2. Each dataset has a “ground_truth” folder containing a text file per each label where each line indicates a node id. 
