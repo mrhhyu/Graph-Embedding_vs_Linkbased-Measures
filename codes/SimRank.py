@@ -1,8 +1,11 @@
 '''
+@author: masoud
 Created on Aug 23, 2020
 computes SimRank matrix form S=C·(Q^T·S·Q)+(1−C)·I
 
-@author: masoud
+If you use this implementation of SimRank, please kindly cite the following paper:
+Masoud Reyhani Hamedani and Sang-Wook Kim, On Investigating Both Effectiveness and Efficiency of Embedding Methods in Task of Similarity Computation of
+Nodes in Graphs. Applied Sciences, 11(1), 162, 2021, https://doi.org/10.3390/app11010162
 '''
 from scipy.sparse import csr_matrix
 from sklearn.preprocessing import normalize
