@@ -1,7 +1,11 @@
 '''
-Created on Nov 9, 2020
-
 @author: masoud
+Created on Nov 9, 2020
+Vectorized implementation of Cosine
+
+If you use this vectorized implementation of Cosine, please kindly cite its original paper as follows:
+Masoud Reyhani Hamedani and Sang-Wook Kim, On Investigating Both Effectiveness and Efficiency of Embedding Methods in Task of Similarity Computation of
+Nodes in Graphs. Applied Sciences, 11(1), 162, 2021, https://doi.org/10.3390/app11010162
 '''
 import numpy as np
 
