@@ -5,7 +5,7 @@ computes JPRank matrix form
 
 If you use this source code of JPRank, please kindly cite its original paper as follows:
 Masoud Reyhani Hamedani and Sang-Wook Kim, Pairwise normalization in SimRank variants: problem, solution, and evaluation. 
-In Proceedings of the 34th ACM/SIGAPP Symposium on Applied Computing, ACM SAC, pp. 534–541, DOI:https://doi.org/10.1145/3297280.3297331
+In Proceedings of the 34th ACM/SIGAPP Symposium on Applied Computing, ACM SAC 2019, pp. 534–541, DOI:https://doi.org/10.1145/3297280.3297331
 '''
 from scipy.sparse import csr_matrix
 from sklearn.preprocessing import normalize
