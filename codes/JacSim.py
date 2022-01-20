@@ -1,8 +1,11 @@
 '''
+@author: masoud
 Created on Aug 23, 2020
 computes JacSim matrix form
 
-@author: masoud
+If you use this source code of JacSim, please kindly cite its original paper as follows:
+Masoud Reyhani Hamedani and Sang-Wook Kim, JacSim: An accurate and efficient link-based similarity measure in graphs. 
+Information Sciences, Vol. 414, pp. 203–224, https://doi.org/10.1016/j.ins.2017.06.005
 '''
 from scipy.sparse import csr_matrix
 from sklearn.preprocessing import normalize
