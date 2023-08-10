@@ -9,15 +9,13 @@ Nodes in Graphs. Applied Sciences, 11(1), 162, 2021, https://doi.org/10.3390/app
 '''
 import numpy as np
 
-
 def compute_cosine(graph_reps='', topK=''):
     '''
         :graph_reps: a matrix of size (#of nodes * #of dimensions) contains the representation vectors for all nodes
         :topK: topK results to be written in an output file by descending order
         NOTE: 
             Ignore 'RuntimeWarning: invalid value encountered in true_divide' message; it happens when the representation vector of a node contains only '0'.
-            This problem is handled during writing the results in the dictionary.
-            
+            This problem is handled during writing the results in the dictionary.            
     '''
         
     result_dict = {}    
