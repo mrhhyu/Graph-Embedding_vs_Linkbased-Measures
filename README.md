@@ -13,7 +13,8 @@
 1. All the codes are implemented in Python 3.7 by Eclipse PyDev.
 2. The codes can be easily used in other Python IDs and it is possible to use them via command line by applying small changes. 
 3. The implementations of link-based similarity measures are based on their matrix forms, which are **significantly faster** than their component forms.
-4. The Cosine implementation is based on a matrix/vector multiplication technique, which is **significantly faster** than its conventional implementation.
+4. The provided codes for link-based similarity measures can be applied to **both** directed and undirected graphs.
+5. The Cosine implementation is based on a matrix/vector multiplication technique, which is **significantly faster** than its conventional implementation.
 
 ## Datasets and Graph Structure:
 1. BlogCatalog, Cora, and Wikipedia datasets are included. 
