@@ -23,6 +23,7 @@ def JacSim_MF(graph='', alpha=0.0, iterations=0, topK=0):
     
     #============================================================================================
         # reading graph; constructing the in-link set of each node; compress the adjacency matrix
+        # NOTE: we can use networkX for reading the graph as well
     #============================================================================================
     rows = []; cols = []; sign = []; inlink_dict={}
     with open(graph, "r") as f:
