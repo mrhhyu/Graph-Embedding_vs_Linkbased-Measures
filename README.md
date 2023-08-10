@@ -1,10 +1,10 @@
 # Graph Embedding Methods vs Link-based Similarity Measures in Task of Similarity Computation of Nodes in Graphs
 **This repository provides:**
-1. Python implementations for the matrix forms of following similarity measures:
- - SimRank 
- - SimRank* (Weiren Yu, Xuemin Lin, Wenjie Zhang, Lijun Chang and Jian Pei. 2013. More is Simpler: Effectively and Efficiently Assessing Node-Pair Similarities Based on  Hyperlinks. Proceedings of the VLDB Endowmen 7, 1, 13–24) 
-- JacSim (Masoud Reyhani Hamedani and Sang-Wook Kim. 2017. JacSim: An Accurate and Efficient Link-Based Similarity Measure In Graphs. Information Sciences 414, 203–224.)
-- JPRank (Masoud Reyhani Hamedani and Sang-Wook Kim. Pairwise Normalization in Simrank Variants: Problem, Solution, and Evaluation. In Proceedings of the 34th ACM/SIGAPP Symposium on Applied Computing, 2019, 534-541.)
+1. Python implementations for the matrix forms of following link-based similarity measures:
+ - SimRank (2002, ACM SIGKDD, https://doi.org/10.1145/775047.775126)
+ - SimRank* (2013, VLDB Endowment, https://doi.org/10.14778/2732219.2732221) 
+- JacSim (2017, Information Sciences, https://doi.org/10.1016/j.ins.2017.06.005)
+- JPRank (2019, ACM SAC, https://doi.org/10.1145/3297280.3297331)
 - Cosine
 2. Datasets 
 
