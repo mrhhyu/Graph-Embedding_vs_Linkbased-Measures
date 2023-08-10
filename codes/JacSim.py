@@ -45,8 +45,6 @@ def JacSim_MF(graph='', alpha=0.0, iterations=0, topK=0):
     ds_size = len(node_set)                          
     csr_adj = csr_matrix((sign, (rows, cols)), shape=(ds_size, ds_size)) ## --- compressed sparse row representation of adjacency matrix
     f.close()
-    del sign
-    del node_set
     print ('The adjacency matrix is compressed in row format ...')
     
     #========================================================================================================
@@ -74,15 +72,12 @@ def JacSim_MF(graph='', alpha=0.0, iterations=0, topK=0):
                 in_link_pair_dict[(target_node,node)] = (intersection,len(inlink_dict[target_node])*len(inlink_dict[node]))
                 
     csr_jaccard = csr_matrix((vals, (rows, cols)), shape=(ds_size, ds_size)) ## --- compressed sparse row representation of jaccard matrix
-    del inlink_dict
-    del keyList
     print ('Jaccard Coefficient for all nodes is computed and stored in a compressed matrix  ...')    
 
     #===========================================================================
         # column normalizing the sparse adjacency matrix
     #===========================================================================
     norm_csr_adj = normalize(csr_adj, norm='l1', axis=0)
-    del csr_adj
     iden_matrix = np.identity(ds_size,dtype=float)
     iden_matrix = iden_matrix * (1.0-decay_factor*alpha)
     result_ = iden_matrix ## S_0
@@ -112,10 +107,6 @@ def JacSim_MF(graph='', alpha=0.0, iterations=0, topK=0):
                             
         csr_extra = csr_matrix((vals, (rows, cols)), shape=(ds_size, ds_size)) ## --- compressed sparse row representation of extra values matrix
         result_ = decay_factor*( alpha*csr_jaccard + (1.0-alpha)*(norm_csr_adj.transpose() @ result_ @ norm_csr_adj - csr_extra) ) + iden_matrix
-        del rows
-        del cols 
-        del vals        
-        del csr_extra                 
         write_to_file(result_, alpha, topK, itr)    
 
 
