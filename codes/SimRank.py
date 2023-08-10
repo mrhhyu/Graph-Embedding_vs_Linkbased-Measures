@@ -44,8 +44,6 @@ def simrank(graph='', iterations=0, topK=0):
     print ('Column normalization is done ...')
     
     iden_matrix = np.identity(len(node_set),dtype=float)
-    del node_set
-    del csr_adj
     iden_matrix = iden_matrix * (1-decay_factor)
     result_ = iden_matrix ## S_0        
     print('===========================================================')
