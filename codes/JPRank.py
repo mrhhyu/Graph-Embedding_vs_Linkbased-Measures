@@ -166,16 +166,3 @@ def JPRank(graph='', alpha_in=0.0, alpha_out=0.0, beta=0.0, iterations=0, topK=0
                   (1.0-beta)*decay_factor* (alpha_out*csr_jaccard_out + (1.0-alpha_out)*(norm_csr_adj_out.transpose() @ result_ @ norm_csr_adj_out - csr_extra_out)) + \
                   iden_matrix
         
-for beta_val in np.arange(0.5,0.6,0.1): ## --- defines the rage of beta as min, max, step      
-    JPRank(graph='XYZ.txt', 
-           alpha_in =0.1, 
-           alpha_out=0.1, 
-           beta=beta_val, 
-           iterations=4, 
-           topK=30)
-    
-
-    
-    
-    
-    
