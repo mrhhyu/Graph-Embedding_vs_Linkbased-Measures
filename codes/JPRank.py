@@ -26,6 +26,7 @@ def JPRank(graph='', alpha_in=0.0, alpha_out=0.0, beta=0.0, iterations=0, topK=0
     
     #================================================================================================================
         # reading graph; constructing the in-link and out-link sets of each node; compress their adjacency matrices
+        # NOTE: we can use networkX for reading the graph as well
     #================================================================================================================
     rows = []; cols = []; sign = []; inlink_dict={}
     rows_out = []; cols_out = []; sign_out = []; outlink_dict={}
