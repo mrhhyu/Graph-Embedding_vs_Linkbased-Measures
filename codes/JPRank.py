@@ -64,13 +64,7 @@ def JPRank(graph='', alpha_in=0.0, alpha_out=0.0, beta=0.0, iterations=0, topK=0
     csr_adj_in = csr_matrix((sign, (rows, cols)), shape=(ds_size, ds_size)) ## --- compressed sparse row representation of in-links adjacency matrix
     csr_adj_out = csr_matrix((sign_out, (rows_out, cols_out)), shape=(ds_size, ds_size)) ## --- compressed sparse row representation of out-links adjacency matrix    
     f.close()
-    del sign
-    del rows_out
-    del cols_out
-    del sign_out    
-    del node_set
-    print ('The adjacency matrices are compressed in row format for both in-links and out-links ...')
-    
+    print ('The adjacency matrices are compressed in row format for both in-links and out-links ...')    
     #========================================================================================================
         # Computing the Jaccard Coefficient for all node pairs; saving them in a compressed symmetric matrix.
     #========================================================================================================
@@ -94,9 +88,7 @@ def JPRank(graph='', alpha_in=0.0, alpha_out=0.0, beta=0.0, iterations=0, topK=0
 
                 in_link_pair_dict[(target_node,node)] = (intersection,len(inlink_dict[target_node])*len(inlink_dict[node]))
                 
-    csr_jaccard_in = csr_matrix((vals, (rows, cols)), shape=(ds_size, ds_size)) ## --- compressed sparse row representation of jaccard matrix
-    del inlink_dict
-    
+    csr_jaccard_in = csr_matrix((vals, (rows, cols)), shape=(ds_size, ds_size)) ## --- compressed sparse row representation of jaccard matrix    
     rows = []; cols = []; vals = []; 
     out_link_pair_dict = {} ## -- keeps the intersection of out-links sets for each node-pair and their length multiplication for future reference 
     keyList = list (outlink_dict)     
@@ -118,8 +110,6 @@ def JPRank(graph='', alpha_in=0.0, alpha_out=0.0, beta=0.0, iterations=0, topK=0
                 out_link_pair_dict[(target_node,node)] = (intersection,len(outlink_dict[target_node])*len(outlink_dict[node]))
                 
     csr_jaccard_out = csr_matrix((vals, (rows, cols)), shape=(ds_size, ds_size)) ## --- compressed sparse row representation of jaccard matrix
-    del outlink_dict
-    del keyList                  
     print ('Jaccard Coefficient is computed and stored in compressed matrices for both in-links and out-links ...')    
 
     #===========================================================================
@@ -127,8 +117,6 @@ def JPRank(graph='', alpha_in=0.0, alpha_out=0.0, beta=0.0, iterations=0, topK=0
     #===========================================================================
     norm_csr_adj_in = normalize(csr_adj_in, norm='l1', axis=0)
     norm_csr_adj_out = normalize(csr_adj_out, norm='l1', axis=0)
-    del csr_adj_in
-    del csr_adj_out
     iden_matrix = np.identity(ds_size,dtype=float)
     iden_matrix = iden_matrix * (1.0-decay_factor*beta*(alpha_in-alpha_out)-decay_factor*alpha_out)
     result_ = iden_matrix ## S_0
@@ -177,11 +165,6 @@ def JPRank(graph='', alpha_in=0.0, alpha_out=0.0, beta=0.0, iterations=0, topK=0
                   (1.0-beta)*decay_factor* (alpha_out*csr_jaccard_out + (1.0-alpha_out)*(norm_csr_adj_out.transpose() @ result_ @ norm_csr_adj_out - csr_extra_out)) + \
                   iden_matrix
         
-        del rows
-        del cols 
-        del vals        
-        del csr_extra_in
-        del csr_extra_out                                 
         write_to_file(result_, beta, alpha_in, alpha_out, topK, itr)    
 
 
