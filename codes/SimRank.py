@@ -52,31 +52,7 @@ def simrank(graph='', iterations=0, topK=0):
     for itr in range (1,iterations+1):
         print ("Iteration {} .... ".format(itr))
         result_ = decay_factor*(norm_csr_adj.transpose() @ result_ @ norm_csr_adj) + iden_matrix
-        write_to_file(result_, topK, itr)    
 
-
-def write_to_file(result_matrix, topK, itr):
-    '''
-        Writes the results of each iteration in a file.
-    '''
-    sim_file = open ('SR_Top'+str(topK)+'_IT_'+str(itr),'w')    
-
-    for target_node in range (0,len(result_matrix)):
-        target_node_res = result_matrix[target_node].tolist()
-        target_node_res_sorted = sorted(target_node_res,reverse=True)[:topK+1]
-        for index in range (0,len(target_node_res_sorted)):
-            val = target_node_res_sorted[index]            
-            if val!=0 and target_node_res.index(val)!= target_node:
-                sim_file.write(str(target_node)+','+str(target_node_res.index(val))+','+str(round(val,6))+'\n')                 
-            target_node_res[target_node_res.index(val)] = np.nan                      
-    sim_file.close()  
-    print ("The result of SimRank, iteration {} is written in the file!.".format(itr)) 
-    print('=============================================================================')
-
-simrank(graph="XYZ.txt", 
-             iterations=5, 
-             topK=30)
-            
     
     
     
