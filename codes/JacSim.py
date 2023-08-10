@@ -109,14 +109,7 @@ def JacSim_MF(graph='', alpha=0.0, iterations=0, topK=0):
         csr_extra = csr_matrix((vals, (rows, cols)), shape=(ds_size, ds_size)) ## --- compressed sparse row representation of extra values matrix
         result_ = decay_factor*( alpha*csr_jaccard + (1.0-alpha)*(norm_csr_adj.transpose() @ result_ @ norm_csr_adj - csr_extra) ) + iden_matrix
 
-for alpha_val in np.arange(0.1,0.2,0.1): ## --- defines the rage of alpha as min, max, step      
-    JacSim_MF(graph="XYZ.txt", 
-              alpha=alpha_val,
-              iterations=4, 
-              topK=30)
-    
 
-    
 
     
     
