@@ -21,6 +21,7 @@ def simrank(graph='', iterations=0, topK=0):
     node_set = set ()
     #===========================================================================
         # reading graph
+        # NOTE: we can use networkX for reading the graph as well    
     #===========================================================================            
     rows = []; cols = []; sign = [];
     with open(graph, "r") as f:
