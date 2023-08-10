@@ -1,6 +1,6 @@
 # Graph Embedding Methods vs Link-based Similarity Measures in Task of Similarity Computation of Nodes in Graphs
 **This repository provides:**
-1. Python implementations for the matrix forms of following link-based similarity measures:
+1. Python implementations for the matrix forms of following similarity measures:
  - SimRank (2002, ACM SIGKDD, https://doi.org/10.1145/775047.775126)
  - SimRank* (2013, VLDB Endowment, https://doi.org/10.14778/2732219.2732221) 
 - JacSim (2017, Information Sciences, https://doi.org/10.1016/j.ins.2017.06.005)
