@@ -108,27 +108,6 @@ def JacSim_MF(graph='', alpha=0.0, iterations=0, topK=0):
                             
         csr_extra = csr_matrix((vals, (rows, cols)), shape=(ds_size, ds_size)) ## --- compressed sparse row representation of extra values matrix
         result_ = decay_factor*( alpha*csr_jaccard + (1.0-alpha)*(norm_csr_adj.transpose() @ result_ @ norm_csr_adj - csr_extra) ) + iden_matrix
-        write_to_file(result_, alpha, topK, itr)    
-
-
-def write_to_file(result_matrix, alpha, topK, itr):
-    '''
-        Writes the results of each iteration in a file.
-    '''
-    sim_file = open ('JacSim_A_'+str(alpha*10).split('.')[0]+'_Top'+str(topK)+'_IT_'+str(itr),'w')
-
-    for target_node in range (0,len(result_matrix)):
-        target_node_res = result_matrix[target_node].tolist()[0]
-        target_node_res_sorted = sorted(target_node_res,reverse=True)[:topK+1]
-        for val in target_node_res_sorted:
-            node = target_node_res.index(val)
-            if val!=0 and node!= target_node:
-                sim_file.write(str(target_node)+','+str(node)+','+str(round(val,5))+'\n')
-            target_node_res[node] = np.nan 
-    sim_file.close()  
-    print ("The result of JacSim matrix form, iteration {} is written in the file!.".format(itr)) 
-    print('==============================================================================================')
-
 
 for alpha_val in np.arange(0.1,0.2,0.1): ## --- defines the rage of alpha as min, max, step      
     JacSim_MF(graph="XYZ.txt", 
