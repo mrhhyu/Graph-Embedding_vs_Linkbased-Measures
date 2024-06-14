@@ -11,7 +11,15 @@
  - BlogCatalog
  - Cora
  - Wikipedia
-  
+
+The following packages are required:
+```
+Python       >= 3.8
+networkx     =2.6.*
+numpy        =1.21.*
+scikit-learn =1.0.*
+```
+
 ## Notes
 1. All the codes are implemented in Python 3.7 by Eclipse PyDev.
 2. The codes can be easily migrated to other Python IDs and it is also possible to use them via command line by applying small changes. 
